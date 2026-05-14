@@ -6,10 +6,9 @@
   "private": true,
   "dependencies": {
     "@sap/cds": ">=8",
+    "@cap-js/sqlite": ">=1",
+    "@sap/xssec": "^3",
     "express": "^4"
-  },
-  "devDependencies": {
-    "@cap-js/sqlite": ">=1"
   },
   "scripts": {
     "start": "cds-serve"
@@ -21,6 +20,9 @@
         "credentials": {
           "url": "db.sqlite"
         }
+      },
+      "auth": {
+        "kind": "dummy"
       }
     }
   }
