@@ -1,4 +1,4 @@
-using ProductService from '../../srv/service';
+using ProductService from './service';
 
 annotate ProductService.Products with @(
     UI.LineItem: [
