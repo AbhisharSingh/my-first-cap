@@ -1,0 +1,62 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "products",
+    "type": "application",
+    "title": "Product Management",
+    "description": "Manage Products and Orders",
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/product/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ProductsList",
+          "target": "ProductsList"
+        }
+      ],
+      "targets": {
+        "ProductsList": {
+          "type": "Component",
+          "id": "ProductsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "Products",
+              "variantManagement": "None",
+              "initialLoad": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Product Management</title>
+    <script
+        id="sap-ui-bootstrap"
+        src="https://ui5.sap.com/resources/sap-ui-core.js"
+        data-sap-ui-libs="sap.m, sap.fe.templates"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-async="true"
+        data-sap-ui-frameOptions="allow"
+        data-sap-ui-theme="sap_horizon"
+        data-sap-ui-resourceroots='{"products": "./"}'>
+    </script>
+    <script>
+        sap.ui.getCore().attachInit(function() {
+            new sap.m.Shell({
+                app: new sap.ui.core.ComponentContainer({
+                    name: "products",
+                    settings: { id: "products" },
+                    async: true
+                })
+            }).placeAt("content");
+        });
+    </script>
+</head>
+<body class="sapUiBody" id="content"></body>
+</html>
